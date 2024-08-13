@@ -13,15 +13,11 @@ interface HookResult {
 // Helper function that invokes the invite API endpoint
 async function fetchInvite (code: string): Promise<InviteResponse> {
   const requestUrl = new URL(INVITE_ENDPOINT)
-  console.log(requestUrl)
   requestUrl.searchParams.append('code', code)
-  console.log(requestUrl)
   const response = await fetch(requestUrl)
   if (!response.ok) {
-    console.log(response)
     throw new Error('Invalid code')
   }
-  console.log(response)
   const invite = await response.json()
   return invite
 }
