@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { InviteResponse } from '../../types/invite'
 import { getInvite } from '../../utils/airtable'
-import messages from '../../data/messages'
 
 export default async function handler (
   req: NextApiRequest,
@@ -25,7 +24,7 @@ export default async function handler (
     // we use our Airtable utility to get the invite data for a given code
     // and return the result to the user
     const invite = await getInvite(code)
-    res.status(200).json({ invite, messages })
+    res.status(200).json({ invite })
   } catch (err) {
     // In case of error we return either a 401 or a 500 error:
     // - if the code was not found we return 401

@@ -1,14 +1,10 @@
-import { Messages } from '../data/messages'
-
 export interface Invite {
   code: string,
-  name: string,
-  favouriteColor: string,
-  weapon: string,
-  coming?: boolean,
+  firstname: string,
+  lastname: string,
+  email: string,
 }
 
 export interface InviteResponse {
-  invite: Invite,
-  messages: Messages
+  invite: Invite
 }

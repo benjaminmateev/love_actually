@@ -1,55 +1,150 @@
-import React, { ChangeEvent } from 'react'
+/* eslint-disable camelcase */
+import React, { useState, FormEvent } from 'react'
 import useInvite from './hooks/useInvite'
-import PizzaImage from './images/Pizza'
+import HeartImage from './images/Heart'
 import ErrorImage from './images/Error'
-import styles from './Home.module.css'
+
+interface SignupResponse {
+  message: string;
+  id?: string;
+  error?: string;
+}
 
 export default function Home () {
-  const { inviteResponse, error, updating, updateRsvp } = useInvite()
+  const { inviteResponse, inviteError } = useInvite()
+  const [firstname, setFirstName] = useState('')
+  const [lastname, setLastName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [gender, setGender] = useState('')
+  const [city, setCity] = useState('')
+  const [message, setMessage] = useState('')
 
-  if (error) {
-    return <div className={styles.error}>
+  if (inviteError) {
+    return <div className="alert alert-error">
       <p><ErrorImage width={200}/></p>
-      <p>{error}</p>
+      <p>{inviteError}</p>
     </div>
   }
 
   if (!inviteResponse) {
-    return <PizzaImage className="spin" width={200}/>
+    return <HeartImage className="spin" width={75}/>
   }
 
-  function onRsvpChange (e: ChangeEvent<HTMLInputElement>) {
-    const coming = e.target.value === 'yes'
-    updateRsvp(coming)
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setMessage('')
+
+    const referred_by: string[] = [inviteResponse.invite.code]
+
+    try {
+      const response = await fetch('/api/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ firstname, lastname, email, phone, gender, city, referred_by })
+      })
+
+      const data: SignupResponse = await response.json()
+
+      if (response.ok) {
+        setMessage('Signup successful!')
+        setFirstName('')
+        setLastName('')
+        setEmail('')
+        setPhone('')
+        setGender('')
+        setCity('')
+      } else {
+        setMessage(`Error: ${data.message}`)
+      }
+    } catch (error) {
+      setMessage('An error occurred. Please try again.')
+    }
   }
 
   return (
     <>
-      <PizzaImage width={200}/>
-      <h1 className={styles.title}>{inviteResponse.messages.title}</h1>
-      <h2 className={styles.subtitle}>{inviteResponse.messages.date_and_place}</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        <div>
 
-      <div className={styles.card} style={{ borderColor: inviteResponse.invite.favouriteColor }}>
-        <h3>Hello, <strong>{inviteResponse.invite.name}</strong>!</h3>
-        <p>{inviteResponse.messages.invitation}</p>
-        <fieldset className={styles.fieldset} disabled={updating}>
-          <legend>{inviteResponse.messages.question}</legend>
+          <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+            <div className='flex justify-center items-center'><HeartImage width={75}/></div>
+            <h1 className="my-2 text-center text-3xl font-bold leading-9 tracking-tight">Actually Love</h1>
+            <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+              <h2 className="my-5 text-center text-2xl font-bold leading-9 tracking-tight">Sign up and join the community</h2>
+              <p className="text-justify mb-4">Congratulations, you have been invite by <b>{inviteResponse.invite.firstname}</b> to our exclusive <b>Actually Love</b> community.</p>
+              <p className="text-justify mb-4">If you want to join us and participate in exciting events whre you can meet like-minded people and maybe find your next partner, then you should sign up now. We curate exclusive events like dinners, parties and drinks to create the perfect atmosphere to meet new people.</p>
+              <p className="text-justify mb-4">We curate exclusive events like dinners, parties and drinks to create the perfect atmosphere to meet new people.</p>
+            </div>
+          </div>
+        </div>
 
-          <label htmlFor="yes">
-            <input type="radio" id="yes" name="coming" value="yes" onChange={onRsvpChange} checked={inviteResponse.invite.coming === true}/>
-            {inviteResponse.messages.answer1}
-          </label>
+        <div>
+        <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+          <p className='text-center'>We just need a few details from you to consider you for our community.</p>
 
-          <label htmlFor="no">
-            <input type="radio" id="no" name="coming" value="no" onChange={onRsvpChange} checked={inviteResponse.invite.coming === false}/>
-            {inviteResponse.messages.answer2}
-          </label>
-        </fieldset>
-        <p>
-          <small>
-            <strong>P.S.</strong> You don&apos;t need to bring your <strong>{inviteResponse.invite.weapon}</strong>, <em>{inviteResponse.messages.secret_person}</em> is not invited!
-          </small>
-        </p>
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            <label className="form-control w-full max-w-xs">
+              <div className="label">
+                <span className="label-text">What is your first name?</span>
+              </div>
+              <input id='firstname' value={firstname} onChange={(e) => setFirstName(e.target.value)} required type="text" placeholder="First Name" className="input input-bordered w-full max-w-xs" />
+            </label>
+
+            <label className="form-control w-full max-w-xs">
+              <div className="label">
+                <span className="label-text">What is your last name?</span>
+              </div>
+              <input id='lastname' value={lastname} onChange={(e) => setLastName(e.target.value)} required type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+            </label>
+
+            <label className="form-control w-full max-w-xs">
+              <div className="label">
+                <span className="label-text">What is your email?</span>
+              </div>
+              <input id='email' value={email} onChange={(e) => setEmail(e.target.value)} required type="email" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+            </label>
+
+            <label className="form-control w-full max-w-xs">
+              <div className="label">
+                <span className="label-text">What is your phone number?</span>
+              </div>
+              <input id='phone' value={phone} onChange={(e) => setPhone(e.target.value)} required type="tel" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+            </label>
+
+            <label htmlFor="" className="form-control w-full max-w-xs">
+              <div className="label">
+                <span className="label-text">What is your gender?</span>
+              </div>
+              <select id='gender' value={gender} onChange={(e) => setGender(e.target.value)} required className="select select-bordered w-full max-w-xs">
+                <option disabled selected></option>
+                <option>female</option>
+                <option>male</option>
+                <option>diverse</option>
+              </select>
+            </label>
+
+            <label htmlFor="" className="form-control w-full max-w-xs">
+              <div className="label">
+                <span className="label-text">Which city is your primary residency?</span>
+              </div>
+              <select id='city' value={city} onChange={(e) => setCity(e.target.value)} required className="select select-bordered w-full max-w-xs">
+                <option disabled selected></option>
+                <option>Berlin</option>
+                <option>London</option>
+                <option>Barcelona</option>
+                <option>San Francisco</option>
+                <option>Other</option>
+              </select>
+            </label>
+
+            <div>
+              <button type="submit" className="btn btn-secondary">Sign up</button>
+            </div>
+            {message && <p className="mt-2 text-sm text-center">{message}</p>}
+          </form>
+        </div>
+        </div>
       </div>
     </>
   )

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import Airtable, { FieldSet, Record } from 'airtable'
 import { Invite } from '../types/invite'
 
@@ -7,6 +8,12 @@ if (!process.env.AIRTABLE_API_KEY) {
 }
 if (!process.env.AIRTABLE_BASE_ID) {
   throw new Error('AIRTABLE_BASE_ID is not set')
+}
+
+interface AirtableResponse {
+  success: boolean;
+  id?: string;
+  error?: string;
 }
 
 // create a new Airtable client and gets a reference to the
@@ -46,7 +53,7 @@ export function getInviteRecord (inviteCode: string): Promise<Record<FieldSet>> 
     base('invites')
       // runs a query on the `invites` table
       .select({
-        filterByFormula: `{invite} = ${escape(inviteCode)}`,
+        filterByFormula: `{code} = ${escape(inviteCode)}`,
         maxRecords: 1
       })
       // reads the first page of results
@@ -72,15 +79,11 @@ export function getInviteRecord (inviteCode: string): Promise<Record<FieldSet>> 
 // get an invite by invite code (promisified)
 export async function getInvite (inviteCode: string): Promise<Invite> {
   const inviteRecord = await getInviteRecord(inviteCode)
-
   return {
-    code: String(inviteRecord.fields.invite),
-    name: String(inviteRecord.fields.name),
-    favouriteColor: String(inviteRecord.fields.favouriteColor),
-    weapon: String(inviteRecord.fields.weapon),
-    coming: typeof inviteRecord.fields.coming === 'undefined'
-      ? undefined
-      : inviteRecord.fields.coming === 'yes'
+    code: String(inviteRecord.fields.code),
+    firstname: String(inviteRecord.fields.firstname),
+    lastname: String(inviteRecord.fields.lastname),
+    email: String(inviteRecord.fields.email)
   }
 }
 
@@ -97,4 +100,28 @@ export async function updateRsvp (inviteCode: string, rsvp: boolean): Promise<vo
       resolve()
     })
   })
+}
+
+export async function createSignup (firstname: string, lastname: string, email: string, phone: string, gender: string, city: string, referred_by: string[]): Promise<AirtableResponse> {
+  try {
+    const records = await base('signups').create([
+      {
+        fields: {
+          firstname: firstname,
+          lastname: lastname,
+          email: email,
+          phone: phone,
+          gender: gender,
+          city: city,
+          referred_by: referred_by
+        }
+      }
+    ])
+
+    console.log('Added record:', records[0].getId())
+    return { success: true, id: records[0].getId() }
+  } catch (error) {
+    console.error('Error adding record to Airtable', error)
+    return { success: false, error: (error as Error).message }
+  }
 }
