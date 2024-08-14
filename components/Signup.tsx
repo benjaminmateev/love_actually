@@ -145,21 +145,21 @@ export default function Home () {
               <div className="label">
                 <span className="label-text">Do you want to share your Instagram profile with us?</span>
               </div>
-              <input id='instagram' value={instagram} onChange={(e) => setInstagram(e.target.value)} required type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+              <input id='instagram' value={instagram} onChange={(e) => setInstagram(e.target.value)} type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
             </label>
 
             <label className="form-control w-full max-w-xs">
               <div className="label">
                 <span className="label-text">Do you want to share your LinkedIn?</span>
               </div>
-              <input id='linkedin' value={linkedin} onChange={(e) => setLinkedin(e.target.value)} required type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+              <input id='linkedin' value={linkedin} onChange={(e) => setLinkedin(e.target.value)} type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
             </label>
 
             <label className="form-control w-full max-w-xs">
               <div className="label">
                 <span className="label-text">Do you want to share a website with us that can tell us a little more about you?</span>
               </div>
-              <input id='website' value={website} onChange={(e) => setWebsite(e.target.value)} required type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+              <input id='website' value={website} onChange={(e) => setWebsite(e.target.value)} type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
             </label>
 
             <div>
