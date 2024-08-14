@@ -18,6 +18,9 @@ export default function Home () {
   const [phone, setPhone] = useState('')
   const [gender, setGender] = useState('')
   const [city, setCity] = useState('')
+  const [instagram, setInstagram] = useState('')
+  const [linkedin, setLinkedin] = useState('')
+  const [website, setWebsite] = useState('')
   const [message, setMessage] = useState('')
 
   const router = useRouter()
@@ -134,6 +137,29 @@ export default function Home () {
                 <option>San Francisco</option>
                 <option>Other</option>
               </select>
+            </label>
+
+            <label htmlFor="" className="form-control w-full max-w-xs">We need one link so we can check out who you are, please give us either your Instagram, your LinkedIn or a link to a website about you</label>
+
+            <label className="form-control w-full max-w-xs">
+              <div className="label">
+                <span className="label-text">Do you want to share your Instagram profile with us?</span>
+              </div>
+              <input id='instagram' value={instagram} onChange={(e) => setInstagram(e.target.value)} required type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+            </label>
+
+            <label className="form-control w-full max-w-xs">
+              <div className="label">
+                <span className="label-text">Do you want to share your LinkedIn?</span>
+              </div>
+              <input id='linkedin' value={linkedin} onChange={(e) => setLinkedin(e.target.value)} required type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+            </label>
+
+            <label className="form-control w-full max-w-xs">
+              <div className="label">
+                <span className="label-text">Do you want to share a website with us that can tell us a little more about you?</span>
+              </div>
+              <input id='website' value={website} onChange={(e) => setWebsite(e.target.value)} required type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
             </label>
 
             <div>

@@ -17,14 +17,14 @@ export default async function handler (
     return res.status(405).json({ message: 'Method Not Allowed' })
   }
 
-  const { firstname, lastname, email, phone, gender, city, referred_by } = req.body as Signup
+  const { firstname, lastname, email, phone, gender, city, instagram, linkedin, website, referred_by } = req.body as Signup
 
   if (!firstname || !lastname || !phone || !gender || !city || !email || !referred_by) {
     return res.status(400).json({ message: 'Information that are required are missing' })
   }
 
   try {
-    const result = await createSignup(firstname, lastname, email, phone, gender, city, referred_by)
+    const result = await createSignup(firstname, lastname, email, phone, gender, city, instagram, linkedin, website, referred_by)
     if (result.success) {
       res.status(200).json({ message: 'Signup added successfully', id: result.id })
     } else {
