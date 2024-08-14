@@ -43,7 +43,7 @@ export default function Home () {
       const response = await fetch('/api/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstname, lastname, email, phone, gender, city, referred_by })
+        body: JSON.stringify({ firstname, lastname, email, phone, gender, city, instagram, linkedin, website, referred_by })
       })
 
       const data: SignupResponse = await response.json()
