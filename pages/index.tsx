@@ -14,8 +14,17 @@ const HomePage: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <HeartImage width={75}/>
-        Welcome you dont have an invite code yet
+        <div className="flex min-h-full flex-col justify-center px-6 py-6 lg:px-8">
+          <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+            <div className='card'>
+              <div className='card-body items-center'>
+                <HeartImage width={50}/>
+                <h2 className='flex justify-center items-center py-4'>Welcome to Love Actually! 🫰🏻</h2>
+                <p className='flex justify-center items-center text-center'>Love Actually is an invite-only event series for singles. We organise dinners, parties, and more all focussed on meeting interesting single people, vetted and chosen by our ambassadors. To join, you will need an invite from get one. As cureate both the people who join and the events, there is currently no way to join without getting an invitatio.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
       <footer className={styles.footer}>
         <p>

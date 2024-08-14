@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Signup from '../components/Signup'
 import styles from './index.module.css'
 
-const HomePage: NextPage = () => {
+const SignupPage: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head>
@@ -25,4 +25,4 @@ const HomePage: NextPage = () => {
   )
 }
 
-export default HomePage
+export default SignupPage

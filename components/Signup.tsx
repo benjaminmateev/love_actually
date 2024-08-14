@@ -53,6 +53,7 @@ export default function Home () {
         setPhone('')
         setGender('')
         setCity('')
+        router.push('/success')
       } else {
         setMessage(`Error: ${data.message}`)
       }
@@ -63,9 +64,9 @@ export default function Home () {
 
   return (
     <>
-      <div>
-        <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-          <div className='flex justify-center items-center'><HeartImage width={75}/></div>
+      <div className='font-sans'>
+        <div className="flex min-h-full flex-col justify-center px-6 py-6 lg:px-8">
+          <div className='flex justify-center items-center'><HeartImage width={50}/></div>
           <h1 className="my-2 text-center text-3xl font-bold leading-9 tracking-tight">Actually Love</h1>
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <h2 className="my-5 text-center text-2xl font-bold leading-9 tracking-tight">Sign up and join the community</h2>
@@ -76,71 +77,71 @@ export default function Home () {
         </div>
       </div>
 
-      <div>
-      <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <p className='text-center'>We just need a few details from you to consider you for our community.</p>
+      <div className="card bg-base-100 w-96 shadow-xl">
+        <div className="card-body">
+          <p className='text-center'>We just need a few details from you to consider you for our community.</p>
 
-        <form className="space-y-6" onSubmit={handleSubmit}>
-          <label className="form-control w-full max-w-xs">
-            <div className="label">
-              <span className="label-text">What is your first name?</span>
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            <label className="form-control w-full max-w-xs">
+              <div className="label">
+                <span className="label-text">What is your first name?</span>
+              </div>
+              <input id='firstname' value={firstname} onChange={(e) => setFirstName(e.target.value)} required type="text" placeholder="First Name" className="input input-bordered w-full max-w-xs" />
+            </label>
+
+            <label className="form-control w-full max-w-xs">
+              <div className="label">
+                <span className="label-text">What is your last name?</span>
+              </div>
+              <input id='lastname' value={lastname} onChange={(e) => setLastName(e.target.value)} required type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+            </label>
+
+            <label className="form-control w-full max-w-xs">
+              <div className="label">
+                <span className="label-text">What is your email?</span>
+              </div>
+              <input id='email' value={email} onChange={(e) => setEmail(e.target.value)} required type="email" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+            </label>
+
+            <label className="form-control w-full max-w-xs">
+              <div className="label">
+                <span className="label-text">What is your phone number?</span>
+              </div>
+              <input id='phone' value={phone} onChange={(e) => setPhone(e.target.value)} required type="tel" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+            </label>
+
+            <label htmlFor="" className="form-control w-full max-w-xs">
+              <div className="label">
+                <span className="label-text">What is your gender?</span>
+              </div>
+              <select id='gender' value={gender} onChange={(e) => setGender(e.target.value)} required className="select select-bordered w-full max-w-xs">
+                <option disabled selected></option>
+                <option>female</option>
+                <option>male</option>
+                <option>diverse</option>
+              </select>
+            </label>
+
+            <label htmlFor="" className="form-control w-full max-w-xs">
+              <div className="label">
+                <span className="label-text">Which city is your primary residency?</span>
+              </div>
+              <select id='city' value={city} onChange={(e) => setCity(e.target.value)} required className="select select-bordered w-full max-w-xs">
+                <option disabled selected></option>
+                <option>Berlin</option>
+                <option>London</option>
+                <option>Barcelona</option>
+                <option>San Francisco</option>
+                <option>Other</option>
+              </select>
+            </label>
+
+            <div>
+              <button type="submit" className="btn btn-secondary">Sign up</button>
             </div>
-            <input id='firstname' value={firstname} onChange={(e) => setFirstName(e.target.value)} required type="text" placeholder="First Name" className="input input-bordered w-full max-w-xs" />
-          </label>
-
-          <label className="form-control w-full max-w-xs">
-            <div className="label">
-              <span className="label-text">What is your last name?</span>
-            </div>
-            <input id='lastname' value={lastname} onChange={(e) => setLastName(e.target.value)} required type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
-          </label>
-
-          <label className="form-control w-full max-w-xs">
-            <div className="label">
-              <span className="label-text">What is your email?</span>
-            </div>
-            <input id='email' value={email} onChange={(e) => setEmail(e.target.value)} required type="email" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
-          </label>
-
-          <label className="form-control w-full max-w-xs">
-            <div className="label">
-              <span className="label-text">What is your phone number?</span>
-            </div>
-            <input id='phone' value={phone} onChange={(e) => setPhone(e.target.value)} required type="tel" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
-          </label>
-
-          <label htmlFor="" className="form-control w-full max-w-xs">
-            <div className="label">
-              <span className="label-text">What is your gender?</span>
-            </div>
-            <select id='gender' value={gender} onChange={(e) => setGender(e.target.value)} required className="select select-bordered w-full max-w-xs">
-              <option disabled selected></option>
-              <option>female</option>
-              <option>male</option>
-              <option>diverse</option>
-            </select>
-          </label>
-
-          <label htmlFor="" className="form-control w-full max-w-xs">
-            <div className="label">
-              <span className="label-text">Which city is your primary residency?</span>
-            </div>
-            <select id='city' value={city} onChange={(e) => setCity(e.target.value)} required className="select select-bordered w-full max-w-xs">
-              <option disabled selected></option>
-              <option>Berlin</option>
-              <option>London</option>
-              <option>Barcelona</option>
-              <option>San Francisco</option>
-              <option>Other</option>
-            </select>
-          </label>
-
-          <div>
-            <button type="submit" className="btn btn-secondary">Sign up</button>
-          </div>
-          {message && <p className="mt-2 text-sm text-center">{message}</p>}
-        </form>
-      </div>
+            {message && <p className="mt-2 text-sm text-center">{message}</p>}
+          </form>
+        </div>
       </div>
     </>
   )
