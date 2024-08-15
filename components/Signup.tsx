@@ -10,7 +10,7 @@ interface SignupResponse {
   error?: string;
 }
 
-export default function Home () {
+export default function Signup () {
   const { inviteResponse, inviteError } = useInvite()
   const [firstname, setFirstName] = useState('')
   const [lastname, setLastName] = useState('')
@@ -67,23 +67,20 @@ export default function Home () {
 
   return (
     <>
-      <div className='font-sans'>
+      <div className=''>
         <div className="flex min-h-full flex-col justify-center px-6 py-6 lg:px-8">
-          <div className='flex justify-center items-center'><HeartImage width={50}/></div>
-          <h1 className="my-2 text-center text-3xl font-bold leading-9 tracking-tight">Actually Love</h1>
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <h2 className="my-5 text-center text-2xl font-bold leading-9 tracking-tight">Sign up and join the community</h2>
-            <p className="text-justify mb-4">Congratulations, you have been invite by <b>{inviteResponse.invite.firstname}</b> to our exclusive <b>Actually Love</b> community.</p>
+            <p className="text-justify mb-4">Congratulations, you have been invite by <b>{inviteResponse.invite.firstname}</b> to our exclusive <b>Love Actually</b> community.</p>
             <p className="text-justify mb-4">If you want to join us and participate in exciting events whre you can meet like-minded people and maybe find your next partner, then you should sign up now. We curate exclusive events like dinners, parties and drinks to create the perfect atmosphere to meet new people.</p>
             <p className="text-justify mb-4">We curate exclusive events like dinners, parties and drinks to create the perfect atmosphere to meet new people.</p>
+            <p className='text-justify mb-4'>We just need a few details from you to consider you for our community.</p>
           </div>
         </div>
       </div>
 
       <div className="card bg-base-100 w-96 shadow-xl">
         <div className="card-body">
-          <p className='text-center'>We just need a few details from you to consider you for our community.</p>
-
           <form className="space-y-6" onSubmit={handleSubmit}>
             <label className="form-control w-full max-w-xs">
               <div className="label">

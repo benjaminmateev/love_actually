@@ -2,36 +2,33 @@ import React from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import HeartImage from '../components/images/Heart'
-import styles from './index.module.css'
 
 const HomePage: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Love Actually</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="theme-color" content="#ccd5ae"/>
       </Head>
 
-      <main className={styles.main}>
-        <div className="flex min-h-full flex-col justify-center px-6 py-6 lg:px-8">
-          <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-            <div className='card'>
-              <div className='card-body items-center'>
-                <HeartImage width={50}/>
-                <h2 className='flex justify-center items-center py-4'>Welcome to Love Actually! 🫰🏻</h2>
-                <p className='flex justify-center items-center text-center'>Love Actually is an invite-only event series for singles. We organise dinners, parties, and more all focussed on meeting interesting single people, vetted and chosen by our ambassadors. To join, you will need an invite from get one. As cureate both the people who join and the events, there is currently no way to join without getting an invitatio.</p>
-              </div>
+      <main className='h-screen flex-col grow'>
+        <div className="hero h-screen">
+        <div className="h-screen hero-overlay bg-opacity-100"></div>
+          <div className="hero-content text-neutral-content text-center">
+            <div className="max-w-md">
+              <div className="flex justify-center items-center"><HeartImage className='items-center' width={40}></HeartImage></div>
+              <h1 className="mb-5 text-5xl font-bold">Welcome to</h1>
+              <h2 className="mb-5 text-5xl font-bold">Love Actually!</h2>
+              <p className="mb-5">
+                Love Actually is an invite-only event series for singles. We organise dinners, parties, and more all focussed on meeting interesting people, vetted and chosen by our ambassadors.
+                To join, you will need an invite from get one. As cureate both the people who join and the events, there is currently no way to join without getting an invitation. So go get your invitiation.
+              </p>
             </div>
           </div>
         </div>
       </main>
-      <footer className={styles.footer}>
-        <p>
-          Built with ♥️ in Berlin
-        </p>
-      </footer>
-    </div>
+    </>
   )
 }
 
