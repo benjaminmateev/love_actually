@@ -25,7 +25,7 @@ const HomePage: NextPage = () => {
                 To join, you will need an invite from get one. As cureate both the people who join and the events, there is currently no way to join without getting an invitation. So go get your invitiation.
               </p>
               <p className='mb-5'>
-                We are looking forward to welcoming you into our community soon and hope you will be able to meet amazing new people through our events. 
+                We are looking forward to welcoming you into our community soon and hope you will be able to meet amazing new people through our events.
               </p>
             </div>
           </div>
