@@ -5,13 +5,15 @@ import Footer from '../components/Footer'
 
 export default function Document () {
   return (
-    <Html lang="en" data-theme="love-actually">
+    <Html lang="en" data-theme="love">
       <Head />
       <body>
-        <Header />
-        <Main />
-        <NextScript />
-        <Footer />
+        <div className="flex flex-col h-screen relative">
+          <Header />
+          <Main />
+          <NextScript />
+          <Footer />
+        </div>
       </body>
     </Html>
   )

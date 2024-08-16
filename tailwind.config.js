@@ -20,32 +20,32 @@ module.exports = {
   ],
   daisyui: {
     themes: ['acid', 'dark', {
-        'love-actually': {
-          'primary' : '#65c3c8',
-          'primary-focus' : '#42b2b8',
-          'primary-content' : '#efeae6',
+        'love': {
+           'primary' : '#17C3B2',
+           'primary-focus' : '#227C9D',
+           'primary-content' : '#efeae6',
 
-          'secondary' : '#ef9fbc',
-          'secondary-focus' : '#e7739e',
-          'secondary-content' : '#efeae6',
+           'secondary' : '#FE6D73',
+           'secondary-focus' : '#e7739e',
+           'secondary-content' : '#efeae6',
 
-          'accent' : '#eeaf3a',
-          'accent-focus' : '#e09915',
-          'accent-content' : '#efeae6',
+           'accent' : '#FFCB77',
+           'accent-focus' : '#e09915',
+           'accent-content' : '#efeae6',
 
-          'neutral' : '#261230',
-          'neutral-focus' : '#200f29',
-          'neutral-content' : '#efeae6',
+           'neutral' : '#261230',
+           'neutral-focus' : '#200f29',
+           'neutral-content' : '#efeae6',
 
-          'base-100' : '#faf7f5',
-          'base-200' : '#efeae6',
-          'base-300' : '#e7e2df',
-          'base-content' : '#261230',
+           'base-100' : '#FEF9EF',
+           'base-200' : '#efeae6',
+           'base-300' : '#e7e2df',
+           'base-content' : '#261230',
 
-          'info' : '#1c92f2',
-          'success' : '#009485',
-          'warning' : '#ff9900',
-          'error' : '#ff5724',
+           'info' : '#1c92f2',
+           'success' : '#009485',
+           'warning' : '#ff9900',
+           'error' : '#ff5724',
 
           '--rounded-box': '1rem',
           '--rounded-btn': '1.9rem',
