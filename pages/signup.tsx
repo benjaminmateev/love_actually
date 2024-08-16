@@ -12,7 +12,7 @@ const SignupPage: NextPage = () => {
         <meta name="theme-color" content="#ccd5ae"/>
       </Head>
 
-      <main className="main">
+      <main className="main text-lg">
         <Signup/>
       </main>
     </>
