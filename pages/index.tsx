@@ -7,8 +7,19 @@ const HomePage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Love Actually</title>
+        <title>Love Actually - A curated community</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="A curated community and an in-person event series for people who are tired of online dating" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Love Actually - A curated community" />
+        <meta
+          property="og:description"
+          content="A curated community and an in-person event series for people who are tired of online dating"
+        />
+        <meta
+          property="og:image"
+          content="https://loveactually.co/og-image.png"
+        />
       </Head>
 
       <main className='flex-col grow mb-auto'>
