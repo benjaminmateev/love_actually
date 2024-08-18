@@ -68,7 +68,7 @@ const HomePage: NextPage = () => {
                   <div className='flex justify-center'>
                     <button type="submit" className="btn-wide btn btn-primary">Enter</button>
                   </div>
-                  {message && <p className="mt-2 text-sm text-center">{message}</p>}
+                  {message && <p className="mt-2 text-sm text-center text-error">{message}</p>}
                 </form>
               </div>
             </div>
