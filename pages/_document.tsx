@@ -8,7 +8,7 @@ export default function Document () {
     <Html lang="en" data-theme="love">
       <Head />
       <body>
-        <div className="flex flex-col h-screen relative">
+        <div className="flex flex-col h-screen">
           <Header />
           <Main />
           <NextScript />
