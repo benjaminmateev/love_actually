@@ -1,4 +1,4 @@
-import React, { useState, FormEvent } from 'react'
+import React, { useState, useEffect, FormEvent } from 'react'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/navigation'
 import Head from 'next/head'
@@ -6,6 +6,7 @@ import HeartImage from '../components/images/Heart'
 
 const HomePage: NextPage = () => {
   const [code, setCode] = useState('')
+  const [message, setMessage] = useState('')
   const router = useRouter()
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -13,6 +14,11 @@ const HomePage: NextPage = () => {
 
     router.push('/signup?code=' + code)
   }
+
+  useEffect(() => {
+    const url = new URL(window.location.toString())
+    setMessage(url.searchParams.get('message'))
+  }, [])
 
   return (
     <>
@@ -62,7 +68,7 @@ const HomePage: NextPage = () => {
                   <div className='flex justify-center'>
                     <button type="submit" className="btn-wide btn btn-primary">Enter</button>
                   </div>
-                  {/* {message && <p className="mt-2 text-sm text-center">{message}</p>} */}
+                  {message && <p className="mt-2 text-sm text-center">{message}</p>}
                 </form>
               </div>
             </div>
