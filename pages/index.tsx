@@ -1,9 +1,25 @@
-import React from 'react'
+import React, { useState, useEffect, FormEvent } from 'react'
 import type { NextPage } from 'next'
+import { useRouter } from 'next/navigation'
 import Head from 'next/head'
 import HeartImage from '../components/images/Heart'
 
 const HomePage: NextPage = () => {
+  const [code, setCode] = useState('')
+  const [message, setMessage] = useState('')
+  const router = useRouter()
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    router.push('/signup?code=' + code)
+  }
+
+  useEffect(() => {
+    const url = new URL(window.location.toString())
+    setMessage(url.searchParams.get('message'))
+  }, [])
+
   return (
     <>
       <Head>
@@ -22,9 +38,9 @@ const HomePage: NextPage = () => {
         />
       </Head>
 
-      <main className='flex-col grow mb-auto text-lg'>
-        <div className="mt-5 px-8 flex justify-center">
-          <div className="text-center">
+      <main className='main flex justify-center mb-auto text-lg'>
+        <div className="mt-5 px-8 justify-center">
+          <div className="text-center mb-10">
             <div className="max-w-md">
               <div className="flex justify-center items-center mb-5"><HeartImage className='items-center' width={50}></HeartImage></div>
               <h1 className="text-5xl mb-3 font-bold">Welcome to</h1>
@@ -38,6 +54,23 @@ const HomePage: NextPage = () => {
               <p className='mb-5'>
                 We are looking forward to welcoming you into our community soon and hope you will be able to meet amazing new people through our events.
               </p>
+            </div>
+          </div>
+
+          <div className='flex justify-center'>
+            <div className="my-8 px-8 justify-center card bg-base-100 w-96 shadow-xl">
+              <div className="card-body px-8 justify-center">
+                <form className="space-y-6" onSubmit={handleSubmit}>
+                  <label className="form-control w-full max-w-xs">
+                    <input id='code' value={code} onChange={(e) => setCode(e.target.value)} required type="text" placeholder="Invite Code" className="input input-bordered w-full max-w-xs" />
+                  </label>
+
+                  <div className='flex justify-center'>
+                    <button type="submit" className="btn-wide btn btn-primary">Enter</button>
+                  </div>
+                  {message && <p className="mt-2 text-sm text-center text-error">{message}</p>}
+                </form>
+              </div>
             </div>
           </div>
         </div>

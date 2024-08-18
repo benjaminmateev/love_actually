@@ -26,7 +26,7 @@ export default function Signup () {
   const router = useRouter()
 
   if (inviteError) {
-    router.push('/')
+    router.push('/?message=Invalid+code')
   }
 
   if (!inviteResponse) {
