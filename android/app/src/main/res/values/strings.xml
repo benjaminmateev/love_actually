@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Love Actually</string>
+    <string name="title_activity_main">Love Actually</string>
+    <string name="package_name">com.loveactually.app</string>
+    <string name="custom_url_scheme">com.loveactually.app</string>
+</resources>
