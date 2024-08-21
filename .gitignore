@@ -34,3 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 .env
+
+# mobile app
+/ios
+/android
