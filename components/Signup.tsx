@@ -24,8 +24,11 @@ export default function Signup () {
   const [message, setMessage] = useState('')
 
   const router = useRouter()
+  console.log('Signup component called')
+  console.log(inviteResponse)
 
   if (inviteError) {
+    console.log(inviteError)
     router.push('/?message=Invalid+code')
   }
 

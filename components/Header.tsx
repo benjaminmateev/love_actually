@@ -4,7 +4,7 @@ import HeartImage from './images/Heart'
 export default function Signup () {
   return (
     <>
-      <header className='header bg-base-100 p-5 flex justify-center'>
+      <header className='bg-base-100 p-5'>
         <div className="navbar">
           <div className="navbar-start"></div>
           <div className="navbar-center">

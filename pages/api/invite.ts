@@ -7,6 +7,7 @@ export default async function handler (
   res: NextApiResponse<InviteResponse | { error: string }>
 ) {
   // if the request is not a GET, return an error
+  console.log('invite api called')
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method Not Allowed' })
   }
@@ -29,6 +30,7 @@ export default async function handler (
     // In case of error we return either a 401 or a 500 error:
     // - if the code was not found we return 401
     // - otherwise we return a generic 500 server error
+    console.log(err)
     const e = (err as Error)
     res.status(e.message === 'Invite not found' ? 401 : 500).json({ error: e.message })
   }
