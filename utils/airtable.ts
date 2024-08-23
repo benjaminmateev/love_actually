@@ -102,7 +102,8 @@ export async function updateRsvp (inviteCode: string, rsvp: boolean): Promise<vo
   })
 }
 
-export async function createSignup (firstname: string, lastname: string, email: string, phone: string, gender: string, city: string, instagram: string, linkedin: string, website: string, referred_by: string[]): Promise<AirtableResponse> {
+export async function createSignup (firstname: string, lastname: string, email: string, phone: string, age: number, gender: string, city: string, instagram: string, linkedin: string, website: string, referred_by: string[]): Promise<AirtableResponse> {
+  console.log(age)
   try {
     const records = await base('signups').create([
       {
@@ -111,6 +112,7 @@ export async function createSignup (firstname: string, lastname: string, email: 
           lastname,
           email,
           phone,
+          age,
           gender,
           city,
           instagram,

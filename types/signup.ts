@@ -3,6 +3,7 @@ export interface Signup {
   lastname: string,
   email: string,
   phone: string,
+  age: number,
   gender: string,
   city: string,
   instagram: string,

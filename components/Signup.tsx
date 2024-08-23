@@ -16,6 +16,7 @@ export default function Signup () {
   const [lastname, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
+  const [age, setAge] = useState('')
   const [gender, setGender] = useState('')
   const [city, setCity] = useState('')
   const [instagram, setInstagram] = useState('')
@@ -30,7 +31,7 @@ export default function Signup () {
   }
 
   if (!inviteResponse) {
-    return <HeartImage className="spin" width={75}/>
+    return <div className='flex justify-center'><HeartImage className="spin" width={75}/></div>
   }
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -43,7 +44,7 @@ export default function Signup () {
       const response = await fetch('/api/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstname, lastname, email, phone, gender, city, instagram, linkedin, website, referred_by })
+        body: JSON.stringify({ firstname, lastname, email, phone, age, gender, city, instagram, linkedin, website, referred_by })
       })
 
       const data: SignupResponse = await response.json()
@@ -54,6 +55,7 @@ export default function Signup () {
         setLastName('')
         setEmail('')
         setPhone('')
+        setAge('')
         setGender('')
         setCity('')
         router.push('/success')
@@ -68,7 +70,7 @@ export default function Signup () {
   return (
     <>
       <div className=''>
-        <div className="flex min-h-full flex-col justify-center px-6 py-6 lg:px-8">
+        <div className="flex justify-center px-6 py-2 lg:px-6">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <h2 className="my-5 text-center text-2xl font-bold leading-9 tracking-tight">Sign up and join the community</h2>
             <p className="text-justify mb-4">Congratulations, you have been invite by <b>{inviteResponse.invite.firstname}</b> to our exclusive <b>Love Actually</b> community.</p>
@@ -79,7 +81,7 @@ export default function Signup () {
         </div>
       </div>
 
-      <div className="card bg-base-100 w-96 shadow-xl">
+      <div className="card bg-base-100 shadow-xl">
         <div className="card-body">
           <form className="space-y-6" onSubmit={handleSubmit}>
             <label className="form-control w-full max-w-xs">
@@ -101,6 +103,13 @@ export default function Signup () {
                 <span className="label-text">What is your email?</span>
               </div>
               <input id='email' value={email} onChange={(e) => setEmail(e.target.value)} required type="email" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+            </label>
+
+            <label className="form-control w-full max-w-xs">
+              <div className="label">
+                <span className="label-text">How old are you?</span>
+              </div>
+              <input id='age' value={age} onChange={(e) => setAge(e.target.value)} required type="number" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
             </label>
 
             <label className="form-control w-full max-w-xs">

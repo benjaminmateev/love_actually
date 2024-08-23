@@ -8,12 +8,10 @@ export default function Document () {
     <Html lang="en" data-theme="love">
       <Head />
       <body>
-        <div className="flex flex-col h-screen">
-          <Header />
-          <Main />
-          <NextScript />
-          <Footer />
-        </div>
+        <Header />
+        <Main />
+        <NextScript />
+        <Footer />
       </body>
     </Html>
   )
