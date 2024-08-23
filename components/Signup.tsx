@@ -81,7 +81,7 @@ export default function Signup () {
         </div>
       </div>
 
-      <div className="card bg-base-100 shadow-xl">
+      <div className="card bg-base-100 shadow-xl mb-8">
         <div className="card-body">
           <form className="space-y-6" onSubmit={handleSubmit}>
             <label className="form-control w-full max-w-xs">

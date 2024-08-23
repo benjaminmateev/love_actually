@@ -9,7 +9,9 @@ export default function Document () {
       <Head />
       <body>
         <Header />
-        <Main />
+        <div className='md:w-96 md:flex md:justify-center md:items-center md:mx-auto'>
+          <Main />
+        </div>
         <NextScript />
         <Footer />
       </body>
