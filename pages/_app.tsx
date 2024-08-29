@@ -2,15 +2,15 @@
 import React from 'react'
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import { Lobster, Oswald } from 'next/font/google'
+import { Laila, Nunito } from 'next/font/google'
 
-const lobster = Lobster({
-  weight: '400',
+const laila = Laila({
+  weight: '700',
   subsets: ['latin']
 })
 
-const oswald = Oswald({
-  weight: '300',
+const nunito = Nunito({
+  weight: '400',
   subsets: ['latin']
 })
 
@@ -19,10 +19,10 @@ function MyApp ({ Component, pageProps }: AppProps) {
     <>
       <style jsx global>{`
         header h1 {
-          font-family: ${lobster.style.fontFamily};
+          font-family: ${laila.style.fontFamily};
         }
         main {
-          font-family: ${oswald.style.fontFamily};
+          font-family: ${nunito.style.fontFamily};
         }
       `}</style>
       <Component {...pageProps} />
