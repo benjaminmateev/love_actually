@@ -29,7 +29,7 @@ module.exports = {
            'secondary-focus' : '#e7739e',
            'secondary-content' : '#efeae6',
 
-           'accent' : '#FFCB77',
+           'accent' : '#FAF9F6',
            'accent-focus' : '#e09915',
            'accent-content' : '#efeae6',
 
@@ -37,7 +37,7 @@ module.exports = {
            'neutral-focus' : '#200f29',
            'neutral-content' : '#efeae6',
 
-           'base-100' : '#FEF9EF',
+           'base-100' : '#FF9E7E',
            'base-200' : '#efeae6',
            'base-300' : '#e7e2df',
            'base-content' : '#261230',

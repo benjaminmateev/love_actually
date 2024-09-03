@@ -20,9 +20,23 @@ function MyApp ({ Component, pageProps }: AppProps) {
       <style jsx global>{`
         header h1 {
           font-family: ${laila.style.fontFamily};
+          color: #FAF9F6;
         }
         main {
           font-family: ${nunito.style.fontFamily};
+          color: #FAF9F6;
+        }
+        footer {
+          font-family: ${nunito.style.fontFamily};
+          color: #FAF9F6;
+        }
+        input {
+          font-family: ${nunito.style.fontFamily};
+          color: #FAF9F6;
+        }
+        .label-text {
+          font-family: ${nunito.style.fontFamily};
+          color: #FAF9F6;
         }
       `}</style>
       <Component {...pageProps} />

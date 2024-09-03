@@ -88,42 +88,42 @@ export default function Signup () {
               <div className="label">
                 <span className="label-text">What is your first name?</span>
               </div>
-              <input id='firstname' value={firstname} onChange={(e) => setFirstName(e.target.value)} required type="text" placeholder="First Name" className="input input-bordered w-full max-w-xs" />
+              <input id='firstname' value={firstname} onChange={(e) => setFirstName(e.target.value)} required type="text" placeholder="First Name" className="input input-accent w-full max-w-xs placeholder-gray-100" />
             </label>
 
             <label className="form-control w-full max-w-xs">
               <div className="label">
                 <span className="label-text">What is your last name?</span>
               </div>
-              <input id='lastname' value={lastname} onChange={(e) => setLastName(e.target.value)} required type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+              <input id='lastname' value={lastname} onChange={(e) => setLastName(e.target.value)} required type="text" placeholder="Type here" className="input input-accent w-full max-w-xs placeholder-gray-100" />
             </label>
 
             <label className="form-control w-full max-w-xs">
               <div className="label">
                 <span className="label-text">What is your email?</span>
               </div>
-              <input id='email' value={email} onChange={(e) => setEmail(e.target.value)} required type="email" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+              <input id='email' value={email} onChange={(e) => setEmail(e.target.value)} required type="email" placeholder="Type here" className="input input-accent w-full max-w-xs placeholder-gray-100" />
             </label>
 
             <label className="form-control w-full max-w-xs">
               <div className="label">
                 <span className="label-text">How old are you?</span>
               </div>
-              <input id='age' value={age} onChange={(e) => setAge(e.target.value)} required type="number" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+              <input id='age' value={age} onChange={(e) => setAge(e.target.value)} required type="number" placeholder="Type here" className="input input-accent w-full max-w-xs placeholder-gray-100" />
             </label>
 
             <label className="form-control w-full max-w-xs">
               <div className="label">
                 <span className="label-text">What is your phone number?</span>
               </div>
-              <input id='phone' value={phone} onChange={(e) => setPhone(e.target.value)} required type="tel" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+              <input id='phone' value={phone} onChange={(e) => setPhone(e.target.value)} required type="tel" placeholder="Type here" className="input input-accent w-full max-w-xs placeholder-gray-100" />
             </label>
 
             <label htmlFor="" className="form-control w-full max-w-xs">
               <div className="label">
                 <span className="label-text">What is your gender?</span>
               </div>
-              <select id='gender' value={gender} onChange={(e) => setGender(e.target.value)} required className="select select-bordered w-full max-w-xs">
+              <select id='gender' value={gender} onChange={(e) => setGender(e.target.value)} required className="select select-accent w-full max-w-xs">
                 <option disabled selected></option>
                 <option>female</option>
                 <option>male</option>
@@ -135,7 +135,7 @@ export default function Signup () {
               <div className="label">
                 <span className="label-text">Which city is your primary residency?</span>
               </div>
-              <select id='city' value={city} onChange={(e) => setCity(e.target.value)} required className="select select-bordered w-full max-w-xs">
+              <select id='city' value={city} onChange={(e) => setCity(e.target.value)} required className="select select-accent w-full max-w-xs">
                 <option disabled selected></option>
                 <option>Berlin</option>
                 <option>London</option>
@@ -151,21 +151,21 @@ export default function Signup () {
               <div className="label">
                 <span className="label-text">Do you want to share your Instagram profile with us?</span>
               </div>
-              <input id='instagram' value={instagram} onChange={(e) => setInstagram(e.target.value)} type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+              <input id='instagram' value={instagram} onChange={(e) => setInstagram(e.target.value)} type="text" placeholder="Type here" className="input input-accent w-full max-w-xs placeholder-gray-100" />
             </label>
 
             <label className="form-control w-full max-w-xs">
               <div className="label">
                 <span className="label-text">Do you want to share your LinkedIn?</span>
               </div>
-              <input id='linkedin' value={linkedin} onChange={(e) => setLinkedin(e.target.value)} type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+              <input id='linkedin' value={linkedin} onChange={(e) => setLinkedin(e.target.value)} type="text" placeholder="Type here" className="input input-accent w-full max-w-xs placeholder-gray-100" />
             </label>
 
             <label className="form-control w-full max-w-xs">
               <div className="label">
                 <span className="label-text">Do you want to share a website with us that can tell us a little more about you?</span>
               </div>
-              <input id='website' value={website} onChange={(e) => setWebsite(e.target.value)} type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+              <input id='website' value={website} onChange={(e) => setWebsite(e.target.value)} type="text" placeholder="Type here" className="input input-accent w-full max-w-xs placeholder-gray-100" />
             </label>
 
             <div>

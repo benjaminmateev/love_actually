@@ -41,8 +41,8 @@ const HomePage: NextPage = () => {
         <div className="mt-5 px-8">
           <div className="mb-10">
             <div className="">
-              <h1 className="text-5xl mb-3 font-bold flex justify-center">Welcome to</h1>
-              <h2 className="mb-10 text-5xl font-bold flex justify-center">Love Actually!</h2>
+              <h1 className="text-5xl mb-3 font-bold flex justify-center text-center">Welcome to</h1>
+              <h2 className="mb-10 text-5xl font-bold flex justify-center text-center">Love Actually!</h2>
               <p className="mb-5 flex text-center">
                 Love Actually is an invite-only event series for singles. We organise events focussed on meeting interesting people, vetted and chosen by our community.
               </p>
@@ -57,7 +57,7 @@ const HomePage: NextPage = () => {
               <div className="card-body px-8">
                 <form className="space-y-6" onSubmit={handleSubmit}>
                   <label className="form-control w-full max-w-xs">
-                    <input id='code' value={code} onChange={(e) => setCode(e.target.value)} required type="text" placeholder="Invite Code" className="input input-bordered w-full max-w-xs" />
+                    <input id='code' value={code} onChange={(e) => setCode(e.target.value)} required type="text" placeholder="Invite Code" className="input input-accent w-full max-w-xs placeholder-gray-100" />
                   </label>
 
                   <div className='flex justify-center'>
